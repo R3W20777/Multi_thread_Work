@@ -2,6 +2,7 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <vector>
 #include "Factory.h"
 #include "Product.h"
 #include "Vehicle.h"
@@ -9,26 +10,26 @@
 
 using namespace std;
 
-void foo(Warehouse w, Factory f, Vehicle v);
-auto a = 550;
+void foo(Warehouse &w, Factory &f, vector<Vehicle> &v);
+int a = 550;
 mutex m;
 
 int main()
 {
-	Warehouse w(1000);
+	Warehouse w(1500);
 	Product p("Milk", 1000, "Cartoon");
 	Factory f(p, 150);
-	Vehicle v("Gazel", 270);
+	vector<Vehicle> v = { Vehicle ("Gazel", 270), Vehicle("Kamaz", 500) };
 	foo(w, f, v);
 	return 0;
 }
 
-void foo(Warehouse w, Factory f, Vehicle v)
+void foo(Warehouse &w, Factory &f, vector<Vehicle> &v)
 {
 	thread t1;
 	while (true)
 	{
-		if (a >= 950  || a + f.GetfactoryItemPerHour() > w.GetwarehouseCapacity())
+		if (a >= 1425  || a + f.GetfactoryItemPerHour() > w.GetwarehouseCapacity())
 		{
 			if (t1.joinable() == true) //Защита от повторного вызова существующего потока
 			{
@@ -41,28 +42,39 @@ void foo(Warehouse w, Factory f, Vehicle v)
 				{
 					while (a >= 0)
 					{
-						if (a - v.GetvehicleCapacity() < 0)
+						for (auto &el : v)
 						{
-							cout << "Potok closed" << endl;
-							t1.detach();
-							break;
+							while (a - el.GetvehicleCapacity() < 0)
+							{
+								this_thread::sleep_for(chrono::milliseconds(1));
+							}
+							
+							m.lock();
+							cout << "......Export items......\t" << el.GetvehicleName() << endl;
+							a -= el.GetvehicleCapacity();
+							cout << "Items in Warehouse: " << a << endl;
+							m.unlock();
 						}
-						this_thread::sleep_for(chrono::milliseconds(1500));
-						m.lock();
-						cout << "......Export items......" << endl;
-						a -= v.GetvehicleCapacity();
-						cout << "Items in Warehouse: " << a << endl;
-						m.unlock();
+						/*m.lock();
+						cout << "Wait" << endl;
+						this_thread::sleep_for(chrono::milliseconds(1000));
+						m.unlock();*/
+						
 					}
 				}));
 		}
-		this_thread::sleep_for(chrono::milliseconds(2000));
-		m.lock();
+		
+		while (a + f.GetfactoryItemPerHour() > w.GetwarehouseCapacity())
+		{
+			this_thread::sleep_for(chrono::milliseconds(1));
+		}
+		this_thread::sleep_for(chrono::milliseconds(1000));
 		cout << "......Import items......" << endl;
 		a += f.GetfactoryItemPerHour();
 		cout << "Items in Warehouse: " << a << endl;
-		m.unlock();
+
+		
 		
 	}
-	t1.join();
+	t1.detach();
 }

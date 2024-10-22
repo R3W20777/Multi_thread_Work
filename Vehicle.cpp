@@ -9,3 +9,8 @@ int Vehicle::GetvehicleCapacity()
 {
 	return vehicleCapacity;
 }
+
+std::string Vehicle::GetvehicleName()
+{
+	return vehicleName;
+}

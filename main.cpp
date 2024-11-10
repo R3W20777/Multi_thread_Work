@@ -10,71 +10,86 @@
 
 using namespace std;
 
-void foo(Warehouse &w, Factory &f, vector<Vehicle> &v);
-int a = 550;
+void foo(Warehouse &w, vector<Factory>&f, vector<Vehicle> &v);
+int a = 0;
 mutex m;
 
 int main()
 {
-	Warehouse w(1500);
+	Warehouse w(3000);
 	Product p("Milk", 1000, "Cartoon");
-	Factory f(p, 150);
-	vector<Vehicle> v = { Vehicle ("Gazel", 270), Vehicle("Kamaz", 500) };
-	foo(w, f, v);
+	Factory f("a", p, 150), f2("b", p, 200), f3("c", p, 350);
+	vector<Vehicle> vv = { Vehicle ("Gazel", 270), Vehicle("Kamaz", 500) };
+	vector<Factory> vf = { Factory("a", p, 150), Factory("b", p, 200), Factory("c", p, 350) };
+
+	foo(w, vf, vv);
+
+	
 	return 0;
 }
 
-void foo(Warehouse &w, Factory &f, vector<Vehicle> &v)
+void foo(Warehouse &w, vector<Factory> &f, vector<Vehicle> &v)
 {
-	thread t1;
+	
+	thread *t = new thread [f.size()];
 	while (true)
 	{
-		if (a >= 1425  || a + f.GetfactoryItemPerHour() > w.GetwarehouseCapacity())
+		
+		for (auto el = 0; el < f.size(); el++)
 		{
-			if (t1.joinable() == true) //Защита от повторного вызова существующего потока
+			if (a >= w.GetwarehouseCapacity() * 95 / 100 || a + f[el].GetfactoryItemPerHour() > w.GetwarehouseCapacity())
 			{
-				cout << "Potok closed" << endl;
-				t1.detach();
-			}
-
-			cout << "Potok open" << endl;
-			t1 = (thread([&]()
+				if (t[el].joinable() == true) //Защита от повторного вызова существующего потока
 				{
-					while (a >= 0)
+					cout << "Potok closed" << endl;
+					t[el].detach();
+				}
+
+				cout << "Potok open" << endl;
+				t[el] = (thread([&]()
 					{
-						for (auto &el : v)
+						while (a >= 0)
 						{
-							while (a - el.GetvehicleCapacity() < 0)
+							for (auto& elv : v)
 							{
-								this_thread::sleep_for(chrono::milliseconds(1));
+								while (f[el].factoryCapacity - elv.GetvehicleCapacity() < 0)
+								{
+									this_thread::sleep_for(chrono::milliseconds(1));
+									
+								}
+
+								m.lock();
+								cout << "......Export items......\t" << elv.GetvehicleName() << "\tFactory: " << f[el].GetfactoryName() << endl;
+								f[el].factoryCapacity -= elv.GetvehicleCapacity();
+								a -= elv.GetvehicleCapacity();
+								cout << "Items in Warehouse: " << a << "\t\tItems in Factory: " << f[el].factoryCapacity << endl;
+								m.unlock();
 							}
 							
-							m.lock();
-							cout << "......Export items......\t" << el.GetvehicleName() << endl;
-							a -= el.GetvehicleCapacity();
-							cout << "Items in Warehouse: " << a << endl;
-							m.unlock();
-						}
-						/*m.lock();
-						cout << "Wait" << endl;
-						this_thread::sleep_for(chrono::milliseconds(1000));
-						m.unlock();*/
-						
-					}
-				}));
-		}
-		
-		while (a + f.GetfactoryItemPerHour() > w.GetwarehouseCapacity())
-		{
-			this_thread::sleep_for(chrono::milliseconds(1));
-		}
-		this_thread::sleep_for(chrono::milliseconds(1000));
-		cout << "......Import items......" << endl;
-		a += f.GetfactoryItemPerHour();
-		cout << "Items in Warehouse: " << a << endl;
 
-		
-		
+						}
+					}));
+			}
+
+			while (a + f[el].GetfactoryItemPerHour() > w.GetwarehouseCapacity())
+			{
+				this_thread::sleep_for(chrono::milliseconds(1));
+				
+				
+			}
+			this_thread::sleep_for(chrono::milliseconds(3000));
+			cout << "......Import items......\tFactory: " << f[el].GetfactoryName() << endl;
+			a += f[el].GetfactoryItemPerHour();
+			f[el].factoryCapacity += f[el].GetfactoryItemPerHour();
+			cout << "Items in Warehouse: " << a << "\t\tItems in Factory: " << f[el].factoryCapacity << endl;
+			
+
+
+
+		}
 	}
-	t1.detach();
+	t[0].detach();
+	t[1].detach();
+	t[2].detach();
+	delete[] t;
 }

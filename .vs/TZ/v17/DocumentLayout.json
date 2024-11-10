@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|solutionrelative:Vehicle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|solutionrelative:Factory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|solutionrelative:Vehicle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2B41A239-1141-4275-BC7A-C3AFB5951134}|TZ.vcxproj|solutionrelative:Factory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-19T16:47:50.173Z",
               "IsPinned": true,
@@ -40,27 +40,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Vehicle.h",
-              "DocumentMoniker": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.h",
-              "RelativeDocumentMoniker": "Vehicle.h",
-              "ToolTip": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.h",
-              "RelativeToolTip": "Vehicle.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-21T18:48:16.909Z"
+              "DocumentIndex": 1,
+              "Title": "Factory.cpp",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.cpp",
+              "RelativeDocumentMoniker": "Factory.cpp",
+              "ToolTip": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.cpp",
+              "RelativeToolTip": "Factory.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-27T16:07:20.175Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Vehicle.cpp",
-              "DocumentMoniker": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.cpp",
-              "RelativeDocumentMoniker": "Vehicle.cpp",
-              "ToolTip": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Vehicle.cpp",
-              "RelativeToolTip": "Vehicle.cpp",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAWwAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-21T18:48:07.49Z"
+              "DocumentIndex": 2,
+              "Title": "Factory.h",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.h",
+              "RelativeDocumentMoniker": "Factory.h",
+              "ToolTip": "C:\\Users\\\u041A\u0430\u0440\u0435\u043D\\Desktop\\\u0420\u0430\u0431\u043E\u0442\u0430\\\u0421\u002B\u002B\\TZ\\Factory.h",
+              "RelativeToolTip": "Factory.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-27T16:07:09.989Z"
             }
           ]
         }
